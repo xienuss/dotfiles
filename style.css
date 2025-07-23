@@ -1,0 +1,51 @@
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    font-family: "GoogleSans, MaterialSymbolsOutlined";
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#bluetooth,
+#network,
+#pulseaudio,
+#custom-clock {
+margin: 0px 3px
+}
+
+#tray {
+margin: 0px 3px 0px 4px;
+}
+
+#custom-mode,
+#bluetooth,
+#network,
+#pulseaudio {
+font-family: "MaterialSymbolsOutlined"
+}
+
+#network {
+}
+
+#bluetooth {
+}
+
+#custom-mode.off,
+#custom-mode {
+opacity: 0;
+margin: 0px -8px
+}
+
+#custom-mode.on {
+opacity: 1;
+margin: 0px 3px 0px 0px
+}
+
+#pulseaudio {
+}

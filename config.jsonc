@@ -1,0 +1,89 @@
+{
+    "layer": "top",
+    "spacing": 0,
+    "height": 0,
+
+    "margin-top": 12,
+    "margin-right": 14,
+    "margin-bottom": 0,
+    "margin-left": 14,
+
+    "modules-left": [
+        "custom/clock",
+	"tray"
+    ],
+
+    "modules-center": [
+    ],
+
+    "modules-right": [
+	"bluetooth",
+	"custom/mode",
+        "network",
+        "pulseaudio"
+    ],
+
+    "tray": {
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    "custom/clock": {
+	"exec": "date +\"%-I:%M\"",
+	"interval": 1,
+	"tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "lan",
+        "format-disconnected": "&#8203;<span rise='-512'>signal_wifi_bad</span>",
+	"format-disabled": "signal_wifi_off",
+        "interval": 5,
+        "tooltip": false,
+	"on-click": "sh ~/.config/rofi/nm-rofi/nmcli-rofi",
+        "format-icons": {
+            "default": ["&#8203;<span rise='-512'>signal_wifi_0_bar</span>", "&#8203;<span rise='-512'>network_wifi_1_bar</span>", "&#8203;<span rise='-512'>network_wifi_2_bar</span>", "&#8203;<span rise='-512'>network_wifi_3_bar</span>", "signal_wifi_4_bar"],
+        },
+    },
+
+    "pulseaudio": {
+        "scroll-step": 1,
+        "max-volume": 100,
+        "format": "<span size='13312'rise='-3072'>{icon}</span><span font_family='GoogleSans'> {volume}%</span>",
+	"format-muted": "<span size='13312'>volume_off</span>",
+        "on-click": "pavucontrol",
+	"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	"on-click-middle": "makoctl mode -t dnd && pkill -SIGRTMIN+1 waybar",
+        "tooltip": false,
+    	"format-icons": {
+        "default": [
+            "volume_mute", // 0-10%
+            "volume_mute", // 11-20%
+            "volume_down", // 21-30%
+            "volume_down", // 31-40%
+            "volume_up", // 41-50%
+            "volume_up", // 51-60%
+            "volume_up", // 61-70%
+            "volume_up", // 71-80%
+            "brand_awareness", // 81-90%
+            "brand_awareness"  // 91-100%
+        ]
+        }
+    },
+
+    "bluetooth": {
+	"format": "bluetooth",
+	"format-off": "bluetooth_disabled",
+	"format-connected": "bluetooth_connected",
+   },
+
+    "custom/mode": {
+	"exec": "~/.config/waybar/scripts/mode.sh",
+	"return-type": "json",
+	"tooltip": false,
+	"signal": 1,
+	"on-click": "exec makoctl mode -r dnd"
+}
+
+}
