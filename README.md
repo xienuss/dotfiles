@@ -11,6 +11,7 @@ my archlinux\hyprland dotfiles, **HEAVILY** inspired by android & [material desi
 - [ ] etc. (~~wallpaper changing script~~, logout menu, settings menu, cursors, GTK)
 ### screenshots
 <img height="300" alt="image" src="https://github.com/user-attachments/assets/39122537-fb71-411e-bcc6-64728b344796" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/a1a06bc8-f067-45cf-b18f-2c0e09572d58" />
 
 ## installation
 for now i'll only say the dependencies in there, so you need:
