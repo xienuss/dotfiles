@@ -1,0 +1,20 @@
+[options]
+fullscreen = false
+overlay = false
+overlay_text = "$imv_current_file  |  $imv_width x $imv_height  $imv_scale%"
+overlay_font = GoogleSansMedium:16
+overlay_background_alpha = 22
+width = 1000
+height = 650
+
+background = #222222
+
+[binds]
+
+d = next
+a = prev
+e = reset
+q = quit
+f = fullscreen
+w = overlay
+r = exec rm $imv_current_file

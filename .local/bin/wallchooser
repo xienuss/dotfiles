@@ -1,0 +1,95 @@
+#!/bin/bash
+# script by https://github.com/kappucin (eblan) 
+
+# путь пропиши для обоев
+wall_dir="$HOME/wp"
+
+
+cache_dir="$wall_dir/cache"
+cache_stamp="$cache_dir/.last_wall_dir"
+
+rofi_command="rofi -dmenu -i -show-icons -icon-theme $cache_dir"
+thumbnail_size="200x200"
+
+
+# тута можно настроить анимашки и фпс
+transition_type="outer"
+transition_angle=30
+transition_duration=1
+transition_fps=60
+
+mkdir -p "$cache_dir"
+rm -f "$cache_dir"/* 2>/dev/null
+
+shopt -s nullglob
+wall_files=()
+for ext in png jpg jpeg webp gif; do
+    wall_files+=("$wall_dir"/*."$ext")
+done
+shopt -u nullglob
+
+if [ ${#wall_files[@]} -eq 0 ]; then
+    exit 1
+fi
+
+current_wall_dir_hash=""
+for img in "${wall_files[@]}"; do
+    echo "$(basename "$img") $(stat -c %s%y "$img")"
+done | sha256sum | read current_wall_dir_hash
+
+use_cache=false
+if [[ -f "$cache_stamp" ]]; then
+    last_wall_dir_hash=$(cat "$cache_stamp")
+    if [[ "$current_wall_dir_hash" == "$last_wall_dir_hash" ]]; then
+        use_cache=true
+    fi
+fi
+
+tmpfile="/tmp/rofi_menu_entries.tmp"
+> "$tmpfile"
+
+if [[ "$use_cache" == true ]]; then
+    for img in "${wall_files[@]}"; do
+        filename=$(basename "$img")
+        thumb_path="$cache_dir/$filename"
+        if [[ -f "$thumb_path" ]]; then
+            echo -e "$filename\x00icon\x1f$thumb_path" >> "$tmpfile"
+        else
+            echo -e "$filename\x00icon\x1f$img" >> "$tmpfile"
+        fi
+    done
+else
+    for img in "${wall_files[@]}"; do
+        filename=$(basename "$img")
+        thumb_path="$cache_dir/$filename"
+        magick "$img" -thumbnail "${thumbnail_size}^" -gravity center -extent "$thumbnail_size" "$thumb_path"
+        echo -e "$filename\x00icon\x1f$thumb_path" >> "$tmpfile"
+    done
+fi
+
+sort -o "$tmpfile" "$tmpfile"
+echo "$current_wall_dir_hash" > "$cache_stamp"
+
+mon_data=$(hyprctl -j monitors 2>/dev/null) || exit 1
+mon_x_res=$(jq '.[] | select(.focused==true) | if (.transform % 2 == 0) then .width else .height end' <<< "$mon_data")
+mon_scale=$(jq '.[] | select(.focused==true) | .scale' <<< "$mon_data" | sed 's/\..*//')
+mon_x_res=$(( mon_x_res * 100 / mon_scale ))
+
+elm_width=280 
+col_count=$(( mon_x_res / elm_width ))
+
+selected=$(cat "$tmpfile" | eval "$rofi_command -theme-str 'listview{columns:${col_count};}'")
+
+if [[ -n "$selected" ]]; then
+    selected_path="$wall_dir/$selected"
+    if [[ -f "$selected_path" ]]; then
+        swww img \
+            --transition-type="$transition_type" \
+            --transition-angle="$transition_angle" \
+            --transition-duration="$transition_duration" \
+            --transition-fps="$transition_fps" \
+            "$selected_path"
+
+    matugen image "$selected_path"
+   fi
+fi

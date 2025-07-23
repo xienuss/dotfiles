@@ -1,0 +1,35 @@
+[config]
+
+[templates.hyprland]
+input_path = "~/.config/matugen/hyprland.template"
+output_path = "~/.config/hypr/colors.conf"
+
+[templates.kitty]
+input_path = "~/.config/matugen/kitty.template"
+output_path = "~/.config/kitty/colors.conf"
+post_hook = "kill -SIGUSR1 $(pgrep kitty)"
+
+[templates.rofi]
+input_path = "~/.config/matugen/rofi.template"
+output_path = "~/.config/rofi/colors.rasi"
+
+[templates.css]
+input_path = "~/.config/matugen/css.template"
+output_path = "~/.config/matugen/gtk/colors.css"
+
+[templates.mako]
+input_path = "~/.config/matugen/mako.template"
+output_path = "~/.config/mako/config"
+post_hook = "makoctl reload"
+
+[templates.btop]
+input_path = '~/.config/matugen/btop.template'
+output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.yazi]
+input_path = '~/.config/matugen/yazi.template'
+output_path = '~/.config/yazi/theme.toml'
+
+[templates.starship]
+input_path = '~/.config/matugen/starship.template'
+output_path = '~/.config/starship.toml'
