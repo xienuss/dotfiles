@@ -17,15 +17,15 @@ my archlinux\hyprland dotfiles, **HEAVILY** inspired by android & [material desi
 for now i'll only say the dependencies in there, so you need:
 - arch linux clean installation
 - configured pacman servers (optional)
-- [`paru`](https://github.com/Morganamilo/paru?tab=readme-ov-file#installation) installed
+- any AUR package manager (i use yay & paru)
 
 now install the package dependencies:
 ```
-paru -Sy base-devel pipewire hyprland waybar mako swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol
+paru -Sy base-devel pipewire hyprland waybar mako swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq
 ```
 optionals (things i use):
 ```
-paru -S google-chrome-stable hiddify-next-bin prismlauncher youtube-music localsend && sudo sh -c "curl -s https://raw.githubusercontent.com/materialgram/arch/x86_64/installer.sh | bash"
+paru -S google-chrome-stable hiddify-next-bin prismlauncher youtube-music localsend materialgram"
 ```
 
 i will make a script for auto installation later when everything will be done.
