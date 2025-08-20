@@ -25,7 +25,7 @@ paru -Sy base-devel pipewire hyprland waybar mako swww fish starship matugen gri
 ```
 optionals (things i use):
 ```
-paru -S google-chrome-stable hiddify-next-bin prismlauncher youtube-music localsend materialgram"
+paru -S google-chrome-stable hiddify-next-bin prismlauncher youtube-music localsend materialgram
 ```
 
 i will make a script for auto installation later when everything will be done.
