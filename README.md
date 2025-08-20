@@ -22,7 +22,7 @@ for now i'll only say the dependencies in there, so you need:
 
 now install the package dependencies:
 ```
-paru -Sy base-devel pipewire hyprland waybar mako swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq
+paru -Sy base-devel pipewire hyprland waybar mako swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq wl-clipboard
 ```
 optionals (things i use):
 ```
