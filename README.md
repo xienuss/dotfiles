@@ -18,6 +18,7 @@ for now i'll only say the dependencies in there, so you need:
 - arch linux clean installation
 - configured pacman servers (optional)
 - any AUR package manager (i use yay & paru)
+- Google sans font pack
 
 now install the package dependencies:
 ```
