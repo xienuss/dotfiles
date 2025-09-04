@@ -22,7 +22,7 @@ you will need:
 
 **!!! use the auto installation only when you have read through it and understanded what every line does, its for your own safety because script hasn`t been tested yet**
 ```
-curl -s https://raw.githubusercontent.com/xienuss/dotfile/main/install.sh | sh
+curl -s https://raw.githubusercontent.com/xienuss/dotfiles/main/install.sh | sh
 ```
 or, if you want to manually install everything, here is the dependencies list:
 ```
