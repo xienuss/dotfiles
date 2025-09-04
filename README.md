@@ -9,20 +9,24 @@ my archlinux\hyprland dotfiles, **HEAVILY** inspired by android & [material desi
 - [x] terminal [kitty, fish&starship] (will add some changes to fish later)
 - [ ] yazi (~~theming~~, keymap)
 - [ ] etc. (~~wallpaper changing script~~, logout menu, settings menu, cursors, GTK)
+i am a lazy kind, so it would be done probably not sooner than a year later, lol
 ### screenshots
-<img height="300" alt="image" src="https://github.com/user-attachments/assets/39122537-fb71-411e-bcc6-64728b344796" />
-<img height="300" alt="image" src="https://github.com/user-attachments/assets/a1a06bc8-f067-45cf-b18f-2c0e09572d58" />
+<img height="540" alt="image" src="https://github.com/user-attachments/assets/7a410fdf-cde0-4764-ba26-9e80878ab35a" />
 
 ## installation
 for now i'll only say the dependencies in there, so you need:
 - arch linux clean installation
 - configured pacman servers (optional)
-- any AUR package manager (i use yay & paru)
+- any AUR package manager (i use paru)
 - Google sans font pack
 
 now install the package dependencies:
 ```
-paru -Sy base-devel pipewire hyprland waybar mako swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq wl-clipboard
+paru -Sy base-devel pipewire hyprland waybar mako btop swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq wl-clipboard
+```
+also if you want to use hyprland plugins, hyprpm needs the following:
+```
+paru -S cmake meson cpio pkg-config git gcc
 ```
 optionals (things i use):
 ```
