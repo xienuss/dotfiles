@@ -14,23 +14,21 @@ i am a lazy kind, so it would be done probably not sooner than a year later, lol
 <img height="540" alt="image" src="https://github.com/user-attachments/assets/7a410fdf-cde0-4764-ba26-9e80878ab35a" />
 
 ## installation
-for now i'll only say the dependencies in there, so you need:
+you will need:
 - arch linux clean installation
 - configured pacman servers (optional)
-- any AUR package manager (i use paru)
-- Google sans font pack
+- curl (sudo pacman -S curl)
+- internet connection
 
-now install the package dependencies:
+**!!! use the auto installation only when you have read through it and understanded what every line does, its for your own safety because script hasn`t been tested yet**
+```
+curl -s https://raw.githubusercontent.com/xienuss/dotfile/main/install.sh | sh
+```
+or, if you want to manually install everything, here is the dependencies list:
 ```
 paru -Sy base-devel pipewire hyprland waybar mako btop swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq wl-clipboard
-```
-also if you want to use hyprland plugins, hyprpm needs the following:
-```
-paru -S cmake meson cpio pkg-config git gcc
 ```
 optionals (things i use):
 ```
 paru -S google-chrome-stable hiddify-next-bin prismlauncher youtube-music localsend materialgram
 ```
-
-i will make a script for auto installation later when everything will be done.
