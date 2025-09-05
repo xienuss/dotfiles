@@ -15,12 +15,12 @@ i am a lazy kind, so it would be done probably not sooner than a year later, lol
 
 ## installation
 you will need:
-- arch linux clean installation
+- arch linux (or arhc-based distro) clean installation
 - configured pacman servers (optional)
 - curl (sudo pacman -S curl)
 - internet connection
 
-**!!! use the auto installation only when you have read through it and understanded what every line does, its for your own safety because script hasn`t been tested yet**
+**!!! this script is experemental and may not work sometimes (especially on the dependency installing part)**
 ```
 curl -s https://raw.githubusercontent.com/xienuss/dotfiles/main/install.sh | sh
 ```
