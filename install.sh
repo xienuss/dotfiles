@@ -40,7 +40,7 @@ while true; do
         ;;
     3)
 	echo "are you really sure you want to continue without any of listed package managers? you will get a list of packages that you would need to install for everything to work fine"
-	read -p "are you sure? (type 'y' / 'Y' to continue or anything else to abort): " confirm
+	read -p "are you sure? (type 'y' / 'Y' to continue or anything else to abort): " confirm < /dev/tty
 		            case $confirm in
                 y|Y)
                     echo ""
@@ -76,7 +76,7 @@ for i in "${!packages[@]}"; do
 done
 echo " or press enter to skip."
 
-read -p "choose your packages (eg. 2 4 67): " optpkgs1
+read -p "choose your packages (eg. 2 4 67): " optpkgs1 < /dev/tty
 
 optpkgs2=()
 for choice in $optpkgs1; do
@@ -89,7 +89,7 @@ neededpkgs="base-devel pipewire hyprland waybar mako btop swww fish starship mat
 echo ""
 echo "processing the dependecies & optional packages.."
 if [ -n "$pacwrap" ]; then
-    $pacwrap -Sy --sudoloop $neededpkgs $optpkgs2
+    $pacwrap -Sy --sudoloop --needed $neededpkgs $optpkgs2
 else
     echo "packages you may need to install manually for everything to work well (as you picked no pacman wrapper):"
     echo "$neededpkgs $optpkgs2"
@@ -109,7 +109,7 @@ chmod +x $HOME/.local/bin/wallchooser $HOME/.local/bin/neofetch
 echo ""
 echo "would you like to install the wallpapers that i use in this dotfile?"
 echo "you can always check them all out: https://github.com/xienuss/dotfiles/tree/main/wp"
-read -p "do you want to install wallpapers? (type 'y' / 'Y' to accept or anything else to decline): " wppack
+read -p "do you want to install wallpapers? (type 'y' / 'Y' to accept or anything else to decline): " wppack < /dev/tty
                             case $wppack in
         y|Y)
             echo "if you want to change wallpapers - put some inside ~/wp/ folder and execute 'wallchooser' script"
@@ -146,7 +146,7 @@ min=$((duration / 60))
 sec=$((duration % 60))
 echo "installation is done! took $min min $sec sec"
 echo "reboot and enjoy"
-read -p "want to reboot? (type 'y' / 'Y' to accept or anything else to decline): " reboot
+read -p "want to reboot? (type 'y' / 'Y' to accept or anything else to decline): " reboot < /dev/tty
                             case $reboot in
         y|Y)
 	    reboot
