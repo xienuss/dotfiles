@@ -63,11 +63,12 @@ echo "now, for the user experience packages: here is a list of packages i use, t
 
 packages=(
     "google-chrome-stable"
-    "hiddify-next"
-    "prismlauncher"
+    "hiddify-next # VPN"
+    "prismlauncher # minecraft launcher"
     "youtube-music"
-    "localsend"
-    "materialgram"
+    "localsend # local file transfer"
+    "materialgram # telegram client"
+	"steam"
 )
 
 echo "select packages by typing the numbers separated by spaces (e.g. 1 2 3):"
