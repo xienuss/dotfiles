@@ -135,6 +135,7 @@ fc-cache -f
 echo ""
 echo "changing user's shell.."
 chsh -s /usr/bin/fish < /dev/tty
+chmod +x $HOME/.local/bin/*
 
 echo ""
 echo "cleaning up"
