@@ -16,7 +16,7 @@ echo "1 - paru"
 echo "2 - yay"
 echo "3 - continue without any"
 while true; do
- read -p "choose the number (1, 2 or 3): " choice
+ read -p "choose the number (1, 2 or 3): " choice < /dev/tty
  case $choice in
     1)
 	if ! command -v paru &> /dev/null; then
