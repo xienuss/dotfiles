@@ -26,7 +26,7 @@ curl -s https://raw.githubusercontent.com/xienuss/dotfiles/main/install.sh | sh
 ```
 or, if you want to manually install everything, here is the dependencies list:
 ```
-paru -Sy base-devel pipewire hyprland waybar mako btop swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq wl-clipboard
+paru -Sy base-devel pipewire hyprland waybar mako btop swww fish starship matugen grim slurp git neofetch yazi rofi-wayland nano imv pavucontrol jq wl-clipboard ttf-material-symbols-variable-git
 ```
 optionals (things i use):
 ```
