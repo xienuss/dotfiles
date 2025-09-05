@@ -116,7 +116,7 @@ read -p "do you want to install wallpapers? (type 'y' / 'Y' to accept or anythin
         y|Y)
             echo "if you want to change wallpapers - put some inside ~/wp/ folder and execute 'wallchooser'"
 	    cp -r wp/ $HOME/wp/
-	    swww init | swww img $HOME/wp/barite.png
+	    swww-init | swww img $HOME/wp/barite.png
 	    matugen image $HOME/wp/barite.png
             ;;
        *)
