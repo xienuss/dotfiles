@@ -89,7 +89,7 @@ neededpkgs="base-devel pipewire hyprland waybar mako btop swww fish starship mat
 echo ""
 echo "processing the dependecies & optional packages.."
 if [ -n "$pacwrap" ]; then
-    $pacwrap -Sy --sudoloop --needed $neededpkgs $optpkgs2 < /dev/tty
+    $pacwrap -Sy --noconfirm --sudoloop --needed $neededpkgs $optpkgs2 < /dev/tty
 else
     echo "packages you may need to install manually for everything to work well (as you picked no pacman wrapper):"
     echo "$neededpkgs $optpkgs2"
