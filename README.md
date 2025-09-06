@@ -15,9 +15,9 @@ i am a lazy kind, so it would be done probably not sooner than a year later, lol
 
 ## installation
 you will need:
-- arch linux (or arhc-based distro) clean installation
+- arch linux (or arch-based distro) clean installation
 - configured pacman servers (optional)
-- curl (sudo pacman -S curl)
+- curl
 - internet connection
 
 **!!! this script is experemental and may not work sometimes (especially on the dependency installing part)**
