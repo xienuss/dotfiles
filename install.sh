@@ -85,7 +85,7 @@ for choice in $optpkgs1; do
     optpkgs+=("${packages[index]}")
 done
 
-neededpkgs="base-devel pipewire hyprland waybar mako btop swww fish starship matugen grim slurp git yazi rofi-wayland nano imv pavucontrol jq wl-clipboard cmake meson cpio pkg-config gcc"
+neededpkgs="base-devel pipewire hyprland kitty waybar mako btop swww fish starship matugen grim slurp git yazi rofi-wayland nano imv pavucontrol jq wl-clipboard cmake meson cpio pkg-config gcc"
 
 echo ""
 echo "processing the dependecies & optional packages.."
