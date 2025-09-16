@@ -142,6 +142,8 @@ echo ""
 echo "cleaning up"
 cd $HOME/.cache/
 rm -rf dotfiles/
+set -U fish_greeting ""
+cd $HOME
 
 duration=$((SECONDS - start_time))
 min=$((duration / 60))
