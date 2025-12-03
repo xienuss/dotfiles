@@ -103,10 +103,10 @@ mkdir $HOME/.cache/ > /dev/null 2>&1
 cd $HOME/.cache/
 git clone https://github.com/xienuss/dotfiles.git
 cd dotfiles
-cp -r .config/ $HOME/
+cp -r .config $HOME/.config
 mkdir $HOME/.local/
 mkdir $HOME/.local/bin/
-cp -r .local/bin/ $HOME/
+cp -r .local/bin $HOME/.local/bin
 chmod +x $HOME/.local/bin/wallchooser $HOME/.local/bin/neofetch
 
 echo ""
@@ -122,7 +122,7 @@ read -p "do you want to install wallpapers? (type 'y' / 'Y' to accept or anythin
             ;;
        *)
             echo "if you want to use wallpapers - put some inside ~/wp folder and execute 'wallchooser', you will also need to set a wallpaper for color initialization"
-	    mkdir $HOME/wp/
+	    mkdir $HOME/wp
             ;;
     esac
 
