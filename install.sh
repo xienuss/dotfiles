@@ -21,7 +21,7 @@ while true; do
     1)
 	if ! command -v paru &> /dev/null; then
         echo "installing paru..."
-        sudo pacman -S --needed base-devel && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
+        sudo pacman -S --needed base-devel git cargo && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
 	else
 	echo "paru is already installed, next step"
 	fi
@@ -31,7 +31,7 @@ while true; do
     2)
 	if ! command -v yay &> /dev/null; then
         echo "installing yay..."
-        sudo pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+        sudo pacman -S --needed base-devel git cargo && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 	else
         echo "yay is already installed, next step"
 	fi
@@ -63,11 +63,11 @@ echo "now, for the user experience packages: here is a list of packages i use, t
 
 packages=(
     "google-chrome-stable"
-    "hiddify-next # VPN"
-    "prismlauncher # minecraft launcher"
+    "hiddify-next"
+    "prismlauncher"
     "youtube-music"
-    "localsend # local file transfer"
-    "materialgram # telegram client"
+    "localsend"
+    "materialgram"
 	"steam"
 )
 
@@ -77,7 +77,7 @@ for i in "${!packages[@]}"; do
 done
 echo " or press enter to skip."
 
-read -p "choose your packages (eg. 2 4 67): " optpkgs1 < /dev/tty
+read -p "choose your packages (eg. 2 4 7): " optpkgs1 < /dev/tty
 
 optpkgs2=()
 for choice in $optpkgs1; do
@@ -85,7 +85,7 @@ for choice in $optpkgs1; do
     optpkgs+=("${packages[index]}")
 done
 
-neededpkgs="base-devel pipewire hyprland kitty waybar mako btop swww fish starship matugen grim slurp git yazi rofi-wayland nano imv pavucontrol jq wl-clipboard cmake meson cpio pkg-config gcc"
+neededpkgs="pipewire hyprland kitty waybar mako btop swww fish starship matugen grim slurp yazi rofi-wayland nano imv pavucontrol jq wl-clipboard cmake meson cpio pkg-config gcc ttf-material-icons-git"
 
 echo ""
 echo "processing the dependecies & optional packages.."
@@ -104,8 +104,9 @@ cd $HOME/.cache/
 git clone https://github.com/xienuss/dotfiles.git
 cd dotfiles
 cp -r .config/ $HOME/
-mkdir $HOME/.local/bin
-cp -r .local/bin/ $HOME/.local/bin/
+mkdir $HOME/.local/
+mkdir $HOME/.local/bin/
+cp -r .local/bin/ $HOME/
 chmod +x $HOME/.local/bin/wallchooser $HOME/.local/bin/neofetch
 
 echo ""
@@ -114,13 +115,13 @@ echo "you can always check them all out: https://github.com/xienuss/dotfiles/tre
 read -p "do you want to install wallpapers? (type 'y' / 'Y' to accept or anything else to decline): " wppack < /dev/tty
                             case $wppack in
         y|Y)
-            echo "if you want to change wallpapers - put some inside ~/wp/ folder and execute 'wallchooser'"
-	    cp -r wp/ $HOME/wp/
-	    swww-init | swww img $HOME/wp/barite.png
+            echo "if you want to change wallpapers - put some inside ~/wp folder and execute 'wallchooser'"
+	    cp -r wp/ $HOME/
+	    swww-daemon | swww img $HOME/wp/barite.png
 	    matugen image $HOME/wp/barite.png
             ;;
        *)
-            echo "if you want to use wallpapers - put some inside ~/wp/ folder and execute 'wallchooser', you will also need to set a wallpaper for color initialization"
+            echo "if you want to use wallpapers - put some inside ~/wp folder and execute 'wallchooser', you will also need to set a wallpaper for color initialization"
 	    mkdir $HOME/wp/
             ;;
     esac
@@ -149,9 +150,8 @@ duration=$((SECONDS - start_time))
 min=$((duration / 60))
 sec=$((duration % 60))
 echo "installation is done! took $min min $sec sec"
-echo "currently the material symbols package on AUR is ducked for some reason, so you will need to install them manually"
-echo "reboot and enjoy"
-read -p "want to reboot? (type 'y' / 'Y' to accept or anything else to decline): " reboot < /dev/tty
+echo "reboot is required"
+read -p "want to reboot right now? (type 'y' / 'Y' to accept or anything else to decline): " reboot < /dev/tty
                             case $reboot in
         y|Y)
 	    reboot
