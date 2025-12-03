@@ -103,10 +103,9 @@ mkdir $HOME/.cache/ > /dev/null 2>&1
 cd $HOME/.cache/
 git clone https://github.com/xienuss/dotfiles.git
 cd dotfiles
-cp -r .config $HOME/.config
+cp -r .config $HOME/
 mkdir $HOME/.local/ > /dev/null 2>&1
-mkdir $HOME/.local/bin/ > /dev/null 2>&1
-cp -r .local/bin/ $HOME/.local/bin
+cp -r .local/bin $HOME/.local/
 chmod +x $HOME/.local/bin/wallchooser $HOME/.local/bin/neofetch
 
 echo ""
