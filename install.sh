@@ -85,7 +85,7 @@ for choice in $optpkgs1; do
     optpkgs+=("${packages[index]}")
 done
 
-neededpkgs="pipewire hyprland kitty waybar mako btop swww fish starship matugen grim slurp yazi rofi-wayland nano imv pavucontrol jq wl-clipboard cmake meson cpio pkg-config gcc noto-fonts-emoji ttf-material-icons-git"
+neededpkgs="pipewire hyprland kitty waybar mako btop swww fish starship matugen grim slurp yazi rofi-wayland nano imv pavucontrol jq wl-clipboard ttf-google-sans cmake meson cpio pkg-config gcc noto-fonts-emoji ttf-material-icons-git"
 
 echo ""
 echo "processing the dependecies & optional packages.."
@@ -125,13 +125,6 @@ read -p "do you want to install wallpapers? (type 'y' / 'Y' to accept or anythin
             ;;
     esac
 
-echo ""
-echo "installing the Google Sans fonts.."
-git clone https://github.com/hprobotic/Google-Sans-Font.git
-cd Google-Sans-Font
-rm README.md
-sudo mkdir /usr/share/fonts/GoogleSans
-sudo mv * /usr/share/fonts/GoogleSans
 fc-cache -f
 
 echo ""
