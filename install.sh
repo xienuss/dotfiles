@@ -21,7 +21,7 @@ while true; do
     1)
 	if ! command -v paru &> /dev/null; then
         echo "installing paru..."
-        sudo pacman -S --needed base-devel git cargo && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
+        sudo pacman -S --needed --noconfirm base-devel git cargo && git clone https://aur.archlinux.org/paru.git && cd paru && makepkg -si
 	else
 	echo "paru is already installed, next step"
 	fi
@@ -31,7 +31,7 @@ while true; do
     2)
 	if ! command -v yay &> /dev/null; then
         echo "installing yay..."
-        sudo pacman -S --needed base-devel git cargo && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+        sudo pacman -S --needed --noconfirm base-devel git cargo && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 	else
         echo "yay is already installed, next step"
 	fi
